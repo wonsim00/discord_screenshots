@@ -27,3 +27,6 @@ class User(Resource):
             return User(**kwargs)
         except ValueError:
             return User.get_by_id(kwargs['id'])
+    
+    def __repr__(self):
+        return f'<User {self.id} of username `{self.username}`>'
