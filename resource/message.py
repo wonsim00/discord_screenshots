@@ -14,8 +14,20 @@ class Message(Resource):
         'mention_roles': tuple 
     })
     
-    def __main__(self, **kwargs):
+    def __init__(self, **kwargs):
         for key in self.__CONVERTER:
             if key in kwargs:
                 kwargs[key] = self.__CONVERTER[key](kwargs[key])
         super(Message, self).__init__(**kwargs)
+    
+    @staticmethod
+    def from_dict(kwargs):
+        return Message(**kwargs)
+    
+    def __repr__(self):
+        return '<Message {message_id} of content `{content}` created at `{timestamp}` by `{author_name}`>'.format(
+            message_id = self.id,
+            content = self.content,
+            timestamp = self.timestamp,
+            author_name = self.author.username
+        )
