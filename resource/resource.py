@@ -5,7 +5,7 @@ class Resource:
 
     def __init__(self, **kwargs):
         for key in kwargs:
-            if kwargs[key]:
+            if kwargs[key] != None:
                 self.__attrs[key] = kwargs[key]
     
     def __getattr__(self, key):
