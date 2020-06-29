@@ -10,6 +10,9 @@ class Resource:
             if kwargs[key] != None:
                 self.__attrs[key] = kwargs[key]
     
+    def __hasattr__(self, key):
+        return True if key in self.__attrs else super(Resource, self).__hasattr__(key)
+    
     def __getattr__(self, key):
         if key in self.__attrs:
             return self.__attrs[key]
