@@ -4,8 +4,7 @@ class Resource:
         return 'https://cdn.discordapp.com'
 
     def __init__(self, **kwargs):
-        self._set_private_attr('__attrs', {})
-
+        super(Resource, self).__setattr__('_Resource__attrs', {})
         for key in kwargs:
             if kwargs[key] != None:
                 self.__attrs[key] = kwargs[key]
