@@ -43,6 +43,10 @@ class Guild(Resource):
         self.__channel_ids.add(channel.id)
         self.__channels.append(channel)
     
+    def add_channels(self, channels):
+        for channel in channels:
+            self.add_channel(channel)
+    
     @staticmethod
     def from_dict(kwargs):
         return Guild(**kwargs)
