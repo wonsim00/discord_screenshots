@@ -4,15 +4,14 @@ class Resource:
         return 'https://cdn.discordapp.com'
 
     def __init__(self, **kwargs):
+        self._set_private_attr('__attrs', {})
+
         for key in kwargs:
             if kwargs[key] != None:
                 self.__attrs[key] = kwargs[key]
     
     def __getattr__(self, key):
-        if key == '_Resource__attrs':
-            super(Resource, self).__setattr__(key, {})
-            return self.__attrs
-        elif key in self.__attrs:
+        if key in self.__attrs:
             return self.__attrs[key]
         raise AttributeError
     
