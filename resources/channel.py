@@ -33,6 +33,10 @@ class Channel(Resource):
             raise RuntimeError
         self.__message_ids.add(message.id)
         self.__messages.append(message)
+    
+    def add_messages(self, messages):
+        for message in messages:
+            self.add_message(message)
 
     @staticmethod
     def from_dict(kwargs):
