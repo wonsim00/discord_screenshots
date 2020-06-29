@@ -15,6 +15,10 @@ class User(Resource):
         super(User, self).__init__(**kwargs)
         self.__REGISTERED[user_id] = self
     
+    @property
+    def resource_user_icon(self):
+        return f'{self.image_base_url}/avatars/{self.id}/{self.avatar}.png'
+
     @staticmethod
     def get_by_id(user_id):
         if user_id in User.__REGISTERED:
