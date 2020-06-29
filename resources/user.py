@@ -16,7 +16,7 @@ class User(Resource):
         self.__REGISTERED[user_id] = self
     
     @property
-    def resource_user_icon(self):
+    def resource_user_avatar(self):
         return f'{self.image_base_url}/avatars/{self.id}/{self.avatar}.png'
 
     @staticmethod
