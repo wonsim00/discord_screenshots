@@ -16,6 +16,10 @@ class User(Resource):
         self.__REGISTERED[user_id] = self
     
     @property
+    def username(self):
+        return self.guild_member.nick if hasattr(self, 'guild_member') else self.__getattr__('username')
+    
+    @property
     def resource_user_avatar(self):
         return f'{self.image_base_url}/avatars/{self.id}/{self.avatar}.png'
 
