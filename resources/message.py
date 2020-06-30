@@ -1,5 +1,6 @@
 from .resource import Resource
 from .user import User
+from .attachment import Attachment
 from utils.time import parse_timestamp_local
 from utils.decorators import cached
 
@@ -8,7 +9,7 @@ class Message(Resource):
         'author': User.from_dict,
         'timestamp': parse_timestamp_local,
         'edited_timestamp': parse_timestamp_local,
-        'attachments': tuple,
+        'attachments': Attachment.to_attachment_list,
         'embeds': tuple,
         'mentions': tuple,
         'mention_roles': tuple 

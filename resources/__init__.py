@@ -3,3 +3,4 @@ from .channel import Channel
 from .message import Message
 from .user import User
 from .guild_member import GuildMember
+from .attachment import Attachment
