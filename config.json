@@ -1,0 +1,10 @@
+{
+    "path": {
+        "tmp-path": {
+            "base-path": "tmp",
+            "avatar-path": "avatar",
+            "images-path": "images"
+        },
+        "css-path": "style.css"
+    }
+}
