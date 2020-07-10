@@ -1,5 +1,6 @@
 **__pycache__**
 .vscode
 sandbox.*
+**.DS_Store
 
 tmp/**
