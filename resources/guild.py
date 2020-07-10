@@ -27,6 +27,9 @@ class Guild(Resource):
     def url_channels(self):
         return f'/guilds/{self.id}/channels'
     
+    def url_guild_member(self, user_id):
+        return f'/guilds/{self.id}/members/{user_id}'
+    
     @property
     def channels(self):
         for channel in self.__channels:
