@@ -9,14 +9,15 @@ class MessageBlock(Component):
 
         self.messages = []
         for idx, message in enumerate(messages):
+            content = message.content
             if idx == 0:
-                obj = Message(message, True, username, avatar, timestamp)
+                obj = Message(content, True, username, avatar, timestamp)
             else:
-                obj = Message(message)
+                obj = Message(content)
             self.messages.append(obj)
     
     def html(self):
-        return "{}" # TODO
+        return "".join(map(str, self.messages))
     
     @property
     def username(self):
@@ -29,6 +30,18 @@ class MessageBlock(Component):
             raise RuntimeError
         except AttributeError:
             self.__username = value
+
+    @property
+    def avatar(self):
+        return self.__avatar
+    
+    @avatar.setter
+    def avatar(self, value):
+        try:
+            self.__avatar
+            raise RuntimeError
+        except AttributeError:
+            self.__avatar = value
     
     @property
     def timestamp(self):

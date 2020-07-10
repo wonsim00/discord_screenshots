@@ -22,24 +22,27 @@ class Timestamp(Component):
         self.timestamp = timestamp
     
     def html(self):
-        return '<span class="timestamp">{timestamp}</span>'
+        return '<span class="timestamp">{timestamp}</span>'.format(timestamp=self.timestamp)
 
 
 class Header(Component):
-    def __init__(self, user, timestamp):
-        self.avatar = Avatar(None) # TODO
-        self.username = Username(user.username)
-        self.timestamp = Timestamp(timestamp)
+    def __init__(self, username, avatar, timestamp):
+        self.username = username
+        self.avatar = avatar
+        self.timestamp = timestamp
     
     def html(self):
-        return '<div>{avatar}<h2 class="header">{username}{timestamp}</h2></div>'.format(
+        return '<div class="content">{avatar}<h2 class="header">{username}{timestamp}</h2></div>'.format(
             avatar = self.avatar, username = self.username, timestamp = self.timestamp )
 
 
 class Message(Component):
-    def __init__(self, content, header = False, username, avatar, timestamp):
+    def __init__(self, content, header = False, username = None, avatar = None, timestamp = None):
         self.content = content
+        if header:
+            self.header = Header(username, avatar, timestamp)
+        else:
+            self.header = ""
     
     def html(self):
-        # TODO
-        return ""
+        return f'<div class="message">{self.header}<div class="messageContent">{self.content}</div></div>'
