@@ -14,8 +14,7 @@ body {
 
 div.message {
     display: block;
-    margin-top: 17px;
-    min-height: 44px;
+    min-height: 20px;
     padding-bottom: 2px;
     padding-left: 72px;
     padding-right: 48px;
@@ -24,7 +23,12 @@ div.message {
 }
 
 div.content {
-    display: block;
+    position: static;
+    outline: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
 }
 
 div.messageContent {
@@ -32,6 +36,21 @@ div.messageContent {
     font-size: 16px;
     margin-left: -72px;
     padding-left: 72px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+h2.header {
+    font-weight: 400;
+    line-height: 22px;
+    min-height: 22px;
+    overflow: hidden;
+    position: relative;
+    white-space: break-spaces;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
 }
 
 span.username{
@@ -52,6 +71,7 @@ img.avatar {
     border-radius: 50%;
     left: 16px;
     top: 4px;
+    z-index: 1;
     position: absolute;
     text-indent: -9999px;
     vertical-align: baseline;
