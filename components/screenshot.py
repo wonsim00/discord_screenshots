@@ -40,7 +40,7 @@ class Screenshot(Component):
         for message in reversed(messages):
             if current_user_id and (
                 message.author.id != current_user_id or
-                (trim_minute(message.timestamp)-trim_minute(current_timestamp)).total_seconds() >= 4200
+                (trim_minute(message.timestamp)-trim_minute(current_timestamp)).total_seconds() >= 420
             ):
                 message_block = self._create_new_message_block(*tmp_list)
                 self.__message_blocks.append(message_block)
