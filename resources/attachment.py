@@ -11,4 +11,4 @@ class Attachment(Resource):
     
     @staticmethod
     def to_attachment_list(object_list):
-        return list(Attachment.from_dict, object_list)
+        return list(map(Attachment.from_dict, object_list))
