@@ -2,11 +2,11 @@ from .component import Component
 
 
 class Avatar(Component):
-    def __init__(self, path):
-        self.path = path
+    def __init__(self, avatar):
+        self.avatar = avatar
     
     def html(self):
-        return '<img src="{path}" class="avatar" />'.format(path=self.path)
+        return '<img src="{avatar}" class="avatar" />'.format(avatar=self.avatar)
 
 
 class Username(Component):
