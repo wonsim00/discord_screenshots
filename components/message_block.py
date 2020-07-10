@@ -1,10 +1,19 @@
 from .component import Component
+from .message import Message
 
 class MessageBlock(Component):
-    def __init__(self, *messages):
-        attrs = MessageBlock._validate(*messages)
-        self.username = attrs['username']
-        self.timestamp = attrs['timestamp']
+    def __init__(self, username, avatar, timestamp, messages):
+        self.username = username
+        self.avatar = avatar
+        self.timestamp = timestamp
+
+        self.messages = []
+        for idx, message in enumerate(messages):
+            if idx == 0:
+                obj = Message(message, True, username, avatar, timestamp)
+            else:
+                obj = Message(message)
+            self.messages.append(obj)
     
     def html(self):
         return "{}" # TODO
@@ -32,16 +41,3 @@ class MessageBlock(Component):
             raise RuntimeError
         except AttributeError:
             self.__timestamp = value
-
-    @staticmethod
-    def _validate(*messages):
-        if len(messages) == 0:
-            raise ValueError
-        username = messages[0].author.username
-        timestamp = messages[0].timestamp
-
-        for message in messages:
-            if username != messages[0].author.username:
-                raise ValueError
-        
-        return { 'username': username, 'timestamp': timestamp }

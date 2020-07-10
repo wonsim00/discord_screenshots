@@ -6,7 +6,7 @@ class Avatar(Component):
         self.path = path
     
     def html(self):
-        return '<img src="{path}" aria-hidden="true" class="avatar" />'.format(path=self.path)
+        return '<img src="{path}" class="avatar" />'.format(path=self.path)
 
 
 class Username(Component):
@@ -37,7 +37,7 @@ class Header(Component):
 
 
 class Message(Component):
-    def __init__(self, content, header = False, username = None, timestamp = None):
+    def __init__(self, content, header = False, username, avatar, timestamp):
         self.content = content
     
     def html(self):
