@@ -7,11 +7,17 @@ class Channel(Resource):
         super(Channel, self).__init__(**kwargs)
         self._set_private_attr('__messages', [])
         self._set_private_attr('__message_ids', set())
+        self._set_private_attr('__participants', set())
     
     @property
     def messages(self):
         for message in self.__messages:
             yield message
+    
+    @property
+    def participants(self):
+        for user_id in self.__participants:
+            yield user_id
     
     @property
     def oldest_message_id(self):
@@ -33,6 +39,7 @@ class Channel(Resource):
             raise RuntimeError
         self.__message_ids.add(message.id)
         self.__messages.append(message)
+        self.__participants.add(message.author.id)
     
     def add_messages(self, messages):
         for message in messages:
