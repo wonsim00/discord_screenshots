@@ -11,6 +11,9 @@ class Screenshot(Component):
             self.__user_id = user_id
             self.__username = username
             self.__avatar = avatar
+
+            self.__original_username = username.username
+            self.__original_avatar = avatar.avatar
         
         @property
         def user_id(self):
