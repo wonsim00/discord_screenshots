@@ -1,10 +1,17 @@
 {
     "path": {
-        "tmp-path": {
-            "base-path": "tmp",
-            "avatar-path": "avatar",
-            "images-path": "images"
+        "tmp_path": {
+            "base_path": "tmp",
+            "avatar_path": "avatar",
+            "images_path": "images"
         },
-        "css-path": "style.css"
+        "css_path": "style.css"
+    },
+    "app_configurations": {
+        "title": "Discord Screenshots",
+        "port": 11037,
+        "open_window_after": 1,
+        "width": 600,
+        "height": 800
     }
 }
