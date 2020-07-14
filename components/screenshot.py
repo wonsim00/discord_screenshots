@@ -73,5 +73,4 @@ class Screenshot(Component):
         return message_block
     
     def html(self):
-        body_inner = "".join(map(str, self.__message_blocks))
-        return f'<!DOCTYPE html><head><link rel="stylesheet" type="text/css" href="style.css"></head><body>{body_inner}</body></html>'
+        return "".join(map(str, self.__message_blocks))
