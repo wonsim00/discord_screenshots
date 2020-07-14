@@ -12,6 +12,7 @@ height = config.app_configurations.height
 
 def run_app():
     app.run(port = port)
+    url_for("static", filename='style.css')
 
 t = Thread(target=run_app)
 t.daemon = True
