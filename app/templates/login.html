@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-    <head>Login</head>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+    </head>
     <body>
-        <form action="/login" method="POST">
-            <input type="text" name="email" required />
-            <input type="password" name="password" required />
-            <button type="submit">Login</button>
+        <form class="login-form" action="/login" method="POST">
+            <div class="login-div">
+                <h5 class="label">이메일</h5>
+                <div class="input-wrapper">
+                    <input class="login-input" type="text" name="email" required />
+                </div>
+            </div>
+            <div class="login-div">
+                <h5 class="label">패스워드</h5>
+                <div class="input-wrapper">
+                    <input class="login-input" type="password" name="password" required />
+                </div>
+            </div>
+            <button type="submit">로그인</button>
         </form>
     </body>
 </html>
