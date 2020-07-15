@@ -50,7 +50,7 @@ class Guild(Component):
             self.__icon = value
     
     def html(self):
-        return f'<div class="guild"><img class="guild-icon" src="{self.icon}"><a href="/guilds/{self.id}">{self.name}</a></div>'
+        return f'<div class="guild"><img class="guild-icon" src="{self.icon}"><a class="guild-link" href="/guilds/{self.id}">{self.name}</a></div>'
 
     @staticmethod
     def from_dict(kwargs):
