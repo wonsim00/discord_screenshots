@@ -11,6 +11,7 @@ width = config.app_configurations.width
 height = config.app_configurations.height
 
 def run_app():
+    app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
     app.run(port = port)
 
 t = Thread(target=run_app)
