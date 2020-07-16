@@ -8,6 +8,7 @@
     --depricated-text-input-border: rgba(0,0,0,0.3);
     --background-mobile-primary: #36393f;
     --highlight: #7289da;
+    --error: #f04747;
 }
 
 body {
@@ -79,7 +80,7 @@ form.login-form {
 }
 
 div.login-failed {
-    color: #f04747;
+    color: var(--error);
     font-size: 16px;
     line-height: 20px;
     text-align: center;
@@ -138,7 +139,7 @@ button {
 img.guild-icon {
     width: 48px;
     height: 48px;
-    border-radius: 24px;
+    border-radius: 50%;
 }
 
 a.guild-link {
