@@ -78,6 +78,13 @@ form.login-form {
     border-radius: 3px;
 }
 
+div.login-failed {
+    color: #f04747;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+}
+
 div.login-div {
     margin-bottom: 20px;
 }

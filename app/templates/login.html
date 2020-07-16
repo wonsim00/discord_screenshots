@@ -5,6 +5,11 @@
     <body>
         <div class="center">
             <form class="login-form" action="/login" method="POST">
+                {% if login_failed %}
+                    <div class="login-failed">
+                        로그인에 실패했습니다. 다시 로그인해 주세요.
+                    </div>
+                {% endif %}
                 <div class="login-div">
                     <h5 class="label">이메일</h5>
                     <div class="input-wrapper">
