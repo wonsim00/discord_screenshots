@@ -1,5 +1,5 @@
 from .app import app
-from components import Guild
+from resources import Guild
 
 from flask import abort, render_template
 import json as _json
@@ -16,7 +16,4 @@ def guilds():
     except _json.JSONDecodeError:
         raise abort(500)
 
-    return render_template(
-        "guilds.html", 
-        guilds="\n".join(map(str, guilds))
-    )
+    return render_template("guilds.html", guilds=guilds, getattr=getattr)
