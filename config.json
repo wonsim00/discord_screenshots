@@ -1,11 +1,7 @@
 {
-    "path": {
-        "tmp_path": {
-            "base_path": "tmp",
-            "avatar_path": "avatar",
-            "images_path": "images"
-        },
-        "css_path": "style.css"
+    "static": {
+        "style": "/static/style.css",
+        "default_guild_icon": "/static/default_guild_icon.png"
     },
     "app_configurations": {
         "title": "Discord Screenshots",

@@ -2,6 +2,7 @@ from flask import abort, redirect, render_template, request
 import json as _json
 
 from api import DiscordApiClient
+from utils.flask import my_render_template
 from .app import app
 
 def login():
@@ -10,7 +11,7 @@ def login():
             return redirect("/home")
         else:
             login_failed = _json.loads(request.args.get('login_failed', 'false'))
-            return render_template("login.html", login_failed=login_failed)
+            return my_render_template("login.html", login_failed=login_failed)
     else:
         if app._client:
             abort(400)

@@ -3,7 +3,7 @@
     {% for guild in guilds %}
         <div class="guild">
             <img class="guild-icon"
-                src="{{ getattr(guild, 'resource_guild_icon', '/static/default_guild_icon.png') }}"
+                src="{{ getattr(guild, 'resource_guild_icon', config.static.default_guild_icon) }}"
             />
             <a class="guild-link" href="/guilds/{{ guild.id }}">
                 {{ guild.name }}

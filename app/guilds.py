@@ -1,7 +1,8 @@
 from .app import app
 from resources import Guild
+from utils.flask import my_render_template
 
-from flask import abort, render_template
+from flask import abort
 import json as _json
 
 def guilds():
@@ -16,4 +17,4 @@ def guilds():
     except _json.JSONDecodeError:
         raise abort(500)
 
-    return render_template("guilds.html", guilds=guilds, getattr=getattr)
+    return my_render_template("guilds.html", guilds=guilds, getattr=getattr)
