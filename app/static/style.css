@@ -136,15 +136,31 @@ button {
     width: 100%;
 }
 
+div.guild-div {
+    display: block;
+    margin: 12px;
+    background-color: var(--background-mobile-primary);
+    padding: 6px;
+    border-radius: 6px;
+}
+
 img.guild-icon {
     width: 48px;
     height: 48px;
     border-radius: 50%;
+    vertical-align: middle;
 }
 
 a.guild-link {
     font-size: 24px;
     color: var(--text-normal);
+    text-decoration: none;
+}
+
+span.guild-name {
+    margin-left: 24px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 span.username {

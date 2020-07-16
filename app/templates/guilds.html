@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 {% block body %}
     {% for guild in guilds %}
-        <div class="guild">
-            <img class="guild-icon"
-                src="{{ getattr(guild, 'resource_guild_icon', config.static.default_guild_icon) }}"
-            />
-            <a class="guild-link" href="/guilds/{{ guild.id }}">
-                {{ guild.name }}
-            </a>
-        </div>
+        <a class="guild-link" href="/guilds/{{ guild.id }}">
+            <div class="guild-div">
+                <img class="guild-icon"
+                    src="{{ getattr(guild, 'resource_guild_icon', config.static.default_guild_icon) }}"
+                />
+                <span class="guild-name">
+                    {{ guild.name }}
+                </span>
+            </div>
+        </a>
     {% endfor %}
 {% endblock %}
