@@ -1,29 +1,25 @@
-<!DOCTYPE html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="/static/style.css">
-    </head>
-    <body>
-        <div class="center">
-            <form class="login-form" action="/login" method="POST">
-                {% if login_failed %}
-                    <div class="login-failed">
-                        로그인에 실패했습니다. 다시 로그인해 주세요.
-                    </div>
-                {% endif %}
-                <div class="login-div">
-                    <h5 class="label">이메일</h5>
-                    <div class="input-wrapper">
-                        <input class="login-input" type="text" name="email" required />
-                    </div>
+{% extends "base.html" %}
+{% block body %}
+    <div class="center">
+        <form class="login-form" action="/login" method="POST">
+            {% if login_failed %}
+                <div class="login-failed">
+                    로그인에 실패했습니다. 다시 로그인해 주세요.
                 </div>
-                <div class="login-div">
-                    <h5 class="label">패스워드</h5>
-                    <div class="input-wrapper">
-                        <input class="login-input" type="password" name="password" required />
-                    </div>
+            {% endif %}
+            <div class="login-div">
+                <h5 class="label">이메일</h5>
+                <div class="input-wrapper">
+                    <input class="login-input" type="text" name="email" required />
                 </div>
-                <button type="submit">로그인</button>
             </div>
+            <div class="login-div">
+                <h5 class="label">패스워드</h5>
+                <div class="input-wrapper">
+                    <input class="login-input" type="password" name="password" required />
+                </div>
+            </div>
+            <button type="submit">로그인</button>
         </form>
-    </body>
-</html>
+    </div>
+{% endblock %}
