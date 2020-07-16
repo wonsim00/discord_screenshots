@@ -22,6 +22,9 @@ class DiscordApiClient(_requests.Session):
             'email': email, 'password': password
         })
 
+        if res.status_code != 200:
+            raise RuntimeError
+
         self.__authorization = res.json()['token']
     
     def api_request(self, method, url, **kwargs):
