@@ -2,10 +2,16 @@
 {% block body %}
     {% for category in categories %}
         <h1>{{ category.name }}</h1>
-        <ul>
-            {% for child in category.children %}
-                <li>{{ child.name }}</li>
-            {% endfor %}
-        </ul>
+        {% for child in category.children %}
+            <a href="/channels/{{ child.id }}" style="text-decoration: none;">
+                <div class="channel-wrapper">
+                    <div class="text-channel">
+                        <div class="channel-name">
+                            {{ child.name }}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
     {% endfor %}
 {% endblock %}

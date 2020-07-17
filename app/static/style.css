@@ -7,8 +7,10 @@
     --depricated-text-input-bg: rgba(0,0,0,0.1);
     --depricated-text-input-border: rgba(0,0,0,0.3);
     --background-mobile-primary: #36393f;
+    --background-modifier-hover: rgba(79,84,92,0.16);
     --highlight: #7289da;
     --error: #f04747;
+    --interactive-hover: #dcddde;
 }
 
 body {
@@ -161,6 +163,39 @@ span.guild-name {
     margin-left: 24px;
     display: inline-block;
     vertical-align: middle;
+}
+
+div.channel-wrapper {
+    height: 32px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    cursor: pointer;
+}
+
+div.text-channel {
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-left: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    align-items: center;
+    display: flex;
+    height: 100%;
+}
+
+div.channel-name {
+    color: var(--channels-default);
+    font-size: 16px;
+    line-height: 20px;
+    display: block;
+}
+
+.channel-wrapper:hover .text-channel {
+    background-color: var(--background-modifier-hover);
+}
+
+.channel-wrapper:hover .channel-name {
+    color: var(--interactive-hover);
 }
 
 span.username {
