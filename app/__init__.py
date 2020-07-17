@@ -1,6 +1,7 @@
 from flask import abort, redirect, render_template, request
 
 from .app import app
+from .channels import guild_channels as _guild_channels
 from .guilds import guilds as _guilds
 from .login import login as _login
 
@@ -15,5 +16,6 @@ def root():
 def home():
     return redirect("/guilds")
 
+app.add_url_rule('/guilds/<guild_id>', _guild_channels.__name__, _guild_channels)
 app.add_url_rule('/guilds', _guilds.__name__, _guilds)
 app.add_url_rule('/login', _login.__name__, _login, methods = ['GET', 'POST'])
