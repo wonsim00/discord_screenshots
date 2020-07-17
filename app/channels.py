@@ -3,7 +3,7 @@ from resources import Channel
 from resources.channel import types
 from utils.flask import my_render_template
 
-from operator import itemgetter as _itemgetter
+from operator import attrgetter as _attrgetter
 
 def guild_channels(guild_id):
     res = app._client.api_get(f'/guilds/{guild_id}/channels')
@@ -19,10 +19,11 @@ def guild_channels(guild_id):
         if channel.type == types.GUILD_CATEGORY:
             categories.append(channel)
             children[channel.id] = []
-        else:
+        elif channel.type == types.GUILD_TEXT:
             parent_id = getattr(channel, 'parent_id', "")
             children[parent_id].append(channel)
     
     for category in categories:
         category.children = children[category.id]
-    return my_render_template("guild_channels.html", categories=categories, types=types)
+    return my_render_template("guild_channels.html",
+        categories=filter(_attrgetter('children'), categories), types=types)
