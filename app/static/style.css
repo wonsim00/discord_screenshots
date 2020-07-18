@@ -165,6 +165,25 @@ span.guild-name {
     vertical-align: middle;
 }
 
+div.channel-category {
+    align-items: center;
+    color: var(--channels-default);
+    display: flex;
+    height: 24px;
+    padding-top: 16px;
+    padding-left: 16px;
+    padding-right: 8px;
+    position: relative;
+}
+
+h2.category-name {
+    box-sizing: border-box;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--channels-default);
+    text-transform: uppercase;
+}
+
 div.channel-wrapper {
     height: 32px;
     padding-top: 1px;

@@ -1,7 +1,15 @@
 {% extends "base.html" %}
 {% block body %}
     {% for category in categories %}
-        <h1>{{ category.name }}</h1>
+        {% if category.id == "" %}
+            <div style="height: 16px;"></div>
+        {% else %}
+            <div class="channel-category">
+                <h2 class="category-name">
+                    {{ category.name }}
+                </h2>
+            </div>
+        {% endif %}
         {% for child in category.children %}
             <a href="/channels/{{ child.id }}" style="text-decoration: none;">
                 <div class="channel-wrapper">
