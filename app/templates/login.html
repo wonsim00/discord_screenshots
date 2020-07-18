@@ -1,7 +1,30 @@
 {% extends "base.html" %}
 {% block body %}
     <div class="center">
-        <form class="login-form" action="/login" method="POST">
+        <script>
+            function loading1() {
+                document.getElementById('loading-1').setAttribute('style', 'visibility: visible;');
+                setTimeout(loading2, 1000);
+            }
+
+            function loading2() {
+                document.getElementById('loading-2').setAttribute('style', 'visibility: visible;');
+                setTimeout(loading3, 1000);
+            }
+
+            function loading3() {
+                document.getElementById('loading-3').setAttribute('style', 'visibility: visible;');
+                setTimeout(loading0, 1000);
+            }
+
+            function loading0() {
+                document.getElementById('loading-1').setAttribute('style', '');
+                document.getElementById('loading-2').setAttribute('style', '');
+                document.getElementById('loading-3').setAttribute('style', '');
+                setTimeout(loading1, 1000);
+            }
+        </script>
+        <form class="login-form" action="/login" method="POST" onsubmit="loading1()">
             {% if login_failed %}
                 <div class="login-failed">
                     로그인에 실패했습니다. 다시 로그인해 주세요.
@@ -19,7 +42,15 @@
                     <input class="login-input" type="password" name="password" required />
                 </div>
             </div>
-            <button type="submit">로그인</button>
+            <button type="submit">
+                <div class="login-label">.</div>
+                <div class="login-label">.</div>
+                <div class="login-label">.</div>
+                <div style="display: inline;">로그인</div>
+                <div class="login-label" id="loading-1">.</div>
+                <div class="login-label" id="loading-2">.</div>
+                <div class="login-label" id="loading-3">.</div>
+            </button>
         </form>
     </div>
 {% endblock %}

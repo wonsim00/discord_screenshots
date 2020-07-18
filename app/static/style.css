@@ -138,6 +138,11 @@ button {
     width: 100%;
 }
 
+div.login-label {
+    display: inline;
+    visibility: hidden;
+}
+
 div.guild-div {
     display: block;
     margin: 12px;
