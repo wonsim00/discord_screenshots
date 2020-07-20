@@ -24,6 +24,10 @@
         )
     }
 </script>
-<iframe id="screenshot" class="screenshot" src="{{ screenshot }}"></iframe>
-<button onclick="Promise.resolve(download_screenshot())">Download Screenshot</button>
+<div class="iframe-container">
+    <iframe id="screenshot" class="screenshot" src="{{ screenshot }}"></iframe>
+    <div style="display: block; margin: 8px;">
+        <button onclick="Promise.resolve(download_screenshot())">Download Screenshot</button>
+    </div>
+</div>
 {% endblock %}
