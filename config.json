@@ -1,7 +1,8 @@
 {
     "static": {
         "style": "/static/style.css",
-        "default_guild_icon": "/static/default_guild_icon.png"
+        "default_guild_icon": "/static/default_guild_icon.png",
+        "html_to_canvas": "/static/html2canvas.min.js"
     },
     "app_configurations": {
         "title": "Discord Screenshots",

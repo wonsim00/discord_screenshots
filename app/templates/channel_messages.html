@@ -1,4 +1,24 @@
 {% extends "base.html" %}
 {% block body %}
-<iframe id="screenshot" src="{{ screenshot }}"></iframe>
+<script src="{{ config.static.html_to_canvas }}"></script>
+<script>
+    function download_screenshot(){
+        var node = document.querySelector("#screenshot").contentDocument.documentElement;
+        var URL = window.URL || window.webkitURL || window;
+        return html2canvas(node, width=node.scrollWidth, height=node.scrollHeight).then(
+            canvas => {
+                canvas.toBlob(
+                    blob => {
+                        var a = document.createElement("a");
+                        a.href = URL.createObjectURL(blob);
+                        a.download = "screenshot.png";
+                        a.click();
+                    }
+                )
+            }
+        )
+    }
+</script>
+<iframe id="screenshot" class="screenshot" src="{{ screenshot }}"></iframe>
+<button onclick="Promise.resolve(download_screenshot())">Download Screenshot</button>
 {% endblock %}
