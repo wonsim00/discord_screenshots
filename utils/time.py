@@ -2,11 +2,15 @@ from datetime import datetime as _datetime
 from datetime import timedelta as _timedelta
 
 _TIMESTAMP_FORMAT = "%Y-%m-%dT%H:%M:%S.%f%z"
+_TIMESTAMP_FORMAT_2 = "%Y-%m-%dT%H:%M:%S%z"
 _TIME_KEYS = ['day', 'hour', 'minute', 'second', 'microsecond']
 
 def parse_timestamp_utc(timestamp):
     if timestamp:
-        return _datetime.strptime(timestamp, _TIMESTAMP_FORMAT)
+        try:
+            return _datetime.strptime(timestamp, _TIMESTAMP_FORMAT)
+        except ValueError:
+            return _datetime.strptime(timestamp, _TIMESTAMP_FORMAT_2)
     else:
         return None
 
