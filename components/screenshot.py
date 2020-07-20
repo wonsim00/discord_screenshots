@@ -63,7 +63,7 @@ class Screenshot(Component):
             user = self.__users[user_id]
         else:
             username = messages[0].author.username
-            avatar = messages[0].author.resource_user_avatar
+            avatar = messages[0].author.cached_user_avatar
             
             user = Screenshot.User(user_id, Username(username), Avatar(avatar))
             self.__users[user_id] = user

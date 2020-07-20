@@ -22,6 +22,10 @@ class User(Resource):
     @property
     def resource_user_avatar(self):
         return f'{self.image_base_url}/avatars/{self.id}/{self.avatar}.png'
+    
+    @property
+    def cached_user_avatar(self):
+        return f'/avatars/{self.id}'
 
     @staticmethod
     def get_by_id(user_id):

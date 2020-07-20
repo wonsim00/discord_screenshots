@@ -1,6 +1,7 @@
 from flask import abort, redirect, render_template, request
 
 from .app import app
+from .avatars import user_avatar as _user_avatar
 from .channels import guild_channels as _guild_channels
 from .guilds import guilds as _guilds
 from .login import login as _login
@@ -18,6 +19,7 @@ def root():
 def home():
     return redirect("/guilds")
 
+app.add_url_rule('/avatars/<user_id>', _user_avatar.__name__, _user_avatar)
 app.add_url_rule('/channels/<channel_id>', _channel_messages.__name__, _channel_messages)
 app.add_url_rule('/channels/<channel_id>/screenshot', _channel_screenshot.__name__, _channel_screenshot)
 app.add_url_rule('/guilds/<guild_id>', _guild_channels.__name__, _guild_channels)
