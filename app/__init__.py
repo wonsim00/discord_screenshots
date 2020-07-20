@@ -1,4 +1,4 @@
-from flask import abort, redirect, render_template, request
+from flask import abort, redirect, request
 
 from .app import app
 from .avatars import user_avatar as _user_avatar
