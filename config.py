@@ -6,6 +6,10 @@ class _Config:
             super(_Config, self).__setattr__("_Config__value", {})
             for key in config_json:
                 self.__value[key] = _Config(config_json[key])
+        elif isinstance(config_json, list) and len(config_json) and isinstance(config_json[0], dict):
+            super(_Config, self).__setattr__("_Config__value", [])
+            for elem in config_json:
+                self.__value.append(_Config(elem))
         else:
             super(_Config, self).__setattr__("_Config__value", config_json)
     

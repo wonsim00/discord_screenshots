@@ -10,5 +10,13 @@
         "open_window_after": 1,
         "width": 600,
         "height": 800
+    },
+    "environ": {
+        "debug": false,
+        "gui": "qt",
+        "copy_files": [{
+            "source": "/lib/html2canvas/html2canvas.min.js",
+            "destination": "/app/static/html2canvas.min.js"
+        }]
     }
 }
