@@ -68,7 +68,7 @@ class Screenshot(Component):
             user = Screenshot.User(user_id, Username(username), Avatar(avatar))
             self.__users[user_id] = user
         
-        timestamp = messages[0].timestamp
+        timestamp = messages[0].timestamp.strftime("%Y-%m-%d %H:%M")
         message_block = MessageBlock(user.username, user.avatar, Timestamp(timestamp), messages)
         return message_block
     
