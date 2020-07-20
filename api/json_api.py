@@ -10,6 +10,9 @@ class MyJsonApi:
         )
         header, encoded = data_uri.split(",", 1)
         data = _b64decode(encoded)
-        with open(result[0], "wb") as f:
+
+        if isinstance(result, tuple):
+            result = result[0]
+        with open(result, "wb") as f:
             f.write(data)
         return None
