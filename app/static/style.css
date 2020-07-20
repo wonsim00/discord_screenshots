@@ -222,6 +222,12 @@ div.channel-name {
     color: var(--interactive-hover);
 }
 
+iframe.screenshot {
+    width: 100%;
+    height: 600px;
+    border-style: none;
+}
+
 span.username {
     color: var(--header-primary);
     font-size: 16px;
