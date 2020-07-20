@@ -1,4 +1,5 @@
 from threading import Thread
+from api import MyJsonApi
 from app import app
 from config import config
 import time
@@ -32,6 +33,8 @@ if __name__=='__main__':
         height = config.app_configurations.height
         gui = getattr(config.environ, 'gui', None)
 
+        api = MyJsonApi()
+
         t = Thread(target=run_app)
         t.daemon = True
         t.start()
@@ -41,6 +44,10 @@ if __name__=='__main__':
             title = title,
             url = f'http://127.0.0.1:{port}/',
             width = width,
-            height = height
+            height = height,
+            js_api = api
         )
+
+        api.window = window
+        api.config = config
         webview.start(gui = gui)
