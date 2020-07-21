@@ -21,7 +21,10 @@ class User(Resource):
     
     @property
     def resource_user_avatar(self):
-        return f'{self.image_base_url}/avatars/{self.id}/{self.avatar}.png'
+        try:
+            return f'{self.image_base_url}/avatars/{self.id}/{self.avatar}.png'
+        except AttributeError:
+            return f'{self.image_base_url}/embed/avatars/{int(self.discriminator)%5}.png'
     
     @property
     def cached_user_avatar(self):
