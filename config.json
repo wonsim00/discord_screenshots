@@ -13,8 +13,8 @@
         "default_download_filename": "screenshot.png"
     },
     "environ": {
-        "debug": false,
-        "gui": null,
+        "debug": true,
+        "gui": "qt",
         "copy_files": [{
             "source": "/lib/html2canvas/html2canvas.min.js",
             "destination": "/app/static/html2canvas.min.js"

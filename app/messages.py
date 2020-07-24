@@ -4,7 +4,11 @@ from utils.flask import my_render_template
 from components import *
 
 def channel_messages(channel_id):
-    return my_render_template("channel_messages.html", screenshot=f"/channels/{channel_id}/screenshot")
+    return my_render_template(
+        "channel_messages.html", 
+        screenshot=f"/channels/{channel_id}/screenshot",
+        guild_id=app._current_guild.id
+    )
 
 def channel_screenshot(channel_id):
     res = app._client.api_get(f'/channels/{channel_id}/messages')

@@ -26,8 +26,10 @@
 </script>
 <div class="iframe-container">
     <iframe id="screenshot" class="screenshot" src="{{ screenshot }}"></iframe>
-    <div style="display: block; margin: 8px;">
-        <button onclick="Promise.resolve(download_screenshot())">Download Screenshot</button>
+    <div style="display: flex; margin: 8px;">
+        <button onclick="location.href='/guilds/{{ guild_id }}'" style="display: inline;">Back</button>
+        <span style="width: 20px;"></span>
+        <button onclick="Promise.resolve(download_screenshot())" style="display: inline;">Download Screenshot</button>
     </div>
 </div>
 {% endblock %}
