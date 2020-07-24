@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block body %}
+<div class="iframe-container">
     {% for category in categories %}
         {% if category.id == "" %}
             <div style="height: 16px;"></div>
@@ -22,4 +23,10 @@
             </a>
         {% endfor %}
     {% endfor %}
+    <div style="display: flex; margin: 8px; position: absolute; bottom: 0; width: -webkit-fill-available;">
+        <button onclick="location.href='/home'" style="display: inline;">Back</button>
+        <span style="width: 20px;"></span>
+        <button onclick="location.href=location.href" style="display: inline;">Refresh</button>
+    </div>
+</div>
 {% endblock %}
